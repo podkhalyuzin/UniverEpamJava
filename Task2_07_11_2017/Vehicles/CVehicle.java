@@ -1,4 +1,4 @@
-package com.company.Task2_07_11_2017;
+package com.company.Task2_07_11_2017.Vehicles;
 
 /**
  * абстрактный класс СVehicle. Класс имеет возможность задавать и получать

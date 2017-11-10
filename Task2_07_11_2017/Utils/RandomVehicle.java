@@ -1,4 +1,6 @@
-package com.company.Task2_07_11_2017;
+package com.company.Task2_07_11_2017.Utils;
+
+import com.company.Task2_07_11_2017.Vehicles.*;
 
 import java.util.Random;
 

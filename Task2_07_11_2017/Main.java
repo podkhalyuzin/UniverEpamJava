@@ -1,5 +1,8 @@
 package com.company.Task2_07_11_2017;
 
+import com.company.Task2_07_11_2017.Utils.RandomVehicle;
+import com.company.Task2_07_11_2017.Vehicles.*;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -15,13 +18,15 @@ import java.util.Date;
  * по Интерфейсам Flyable, MoveAble, SwimAble;
  */
 public class Main {
-
+    
     public static void main(String[] args) {
 	// write your code here
         //Массив хранит 50 средств передвижения CVehicle
+
+
         CVehicle[] vehicles = new CVehicle[50];
         for(int i=0;i<50;i++)
-            vehicles[i]=RandomVehicle.randomVehicle();
+            vehicles[i]= RandomVehicle.randomVehicle();
 
         System.out.println("Задание№1");
         // списочные массивы хранят объекты с наименьшей ценой с наибольшей скоростью и не старше 5 лет
