@@ -1,6 +1,7 @@
 package com.company.Task1_03_11_2017;
 
 import java.util.Stack;
+import com.company.Task1_03_11_2017.ArrayPrinter;
 
 /**
  * класс предназначеный для печати массивов
@@ -42,7 +43,7 @@ public class ArrayPrinter {
      * Метод ищет выход из лабиринта
      * @param N - лабиринт,матрица из 0 и 1
      */
-    public void labyrinth(int[][] N){
+    public static void labyrinth(int[][] N){
         int X = N.length;
         int Y = N[0].length;
         // 1 - посещённые клетки, 0 - не посещённые
@@ -53,7 +54,7 @@ public class ArrayPrinter {
         Stack<Cell> stack = new Stack<Cell>();
         Cell Current = new Cell(0,0);
 
-        while(Current.getFirst()!=X-1 && Current.getSecond()!=Y-1){
+        while(Visited[X-1][Y-1]!=1){
             if(!stack.contains(Current))
                 stack.push(Current);
             //крайнее правое положение
@@ -77,10 +78,9 @@ public class ArrayPrinter {
                     i=Current.getFirst();
                     j=Current.getSecond();
                 }
-                continue;
             }
             //крайнее левое положение
-            if(j==0 && i!=X-1){
+            else if(j==0 && i!=X-1){
                 if(N[i+1][j]==0 && Visited[i+1][j]==0){
                     Current = new Cell(i+1,j);
                     Visited[++i][j]=1;
@@ -100,10 +100,9 @@ public class ArrayPrinter {
                     i=Current.getFirst();
                     j=Current.getSecond();
                 }
-                continue;
             }
             //крайнее нижнее положение
-            if(i==X-1 && j!=0){
+            else if(i==X-1 && j!=0){
                 if(N[i][j+1]==0 && Visited[i][j+1]==0){
                     Current = new Cell(i,j+1);
                     Visited[i][++j]=1;
@@ -123,10 +122,9 @@ public class ArrayPrinter {
                     i=Current.getFirst();
                     j=Current.getSecond();
                 }
-                continue;
             }
             //крайнее верхнее положение
-            if(i==0 && j!=Y-1){
+            else if(i==0 && j!=Y-1){
                 if(N[i][j+1]==0 && Visited[i][j+1]==0){
                     Current = new Cell(i,j+1);
                     Visited[i][++j]=1;
@@ -145,10 +143,9 @@ public class ArrayPrinter {
                     Current = stack.peek();
                     i=Current.getFirst();
                 }
-                continue;
             }
             //правая верхняя ячейка
-            if(i==0 && j==Y-1){
+            else if(i==0 && j==Y-1){
                 if(N[i+1][j]==0 && Visited[i+1][j]==0){
                     Current = new Cell(i+1,j);
                     Visited[++i][j]=1;
@@ -164,10 +161,9 @@ public class ArrayPrinter {
                     i=Current.getFirst();
                     j=Current.getSecond();
                 }
-                continue;
             }
             //левая нижняя ячейка
-            if(j==0 && i==X-1){
+            else if(j==0 && i==X-1){
                 if(N[i-1][j]==0 && Visited[i-1][j]==0){
                     Current = new Cell(i+1,j);
                     Visited[--i][j]=1;
@@ -183,7 +179,6 @@ public class ArrayPrinter {
                     i=Current.getFirst();
                     j=Current.getSecond();
                 }
-                continue;
             }
             //обычное положение
             else {
